@@ -17,6 +17,14 @@ const TaskForm = () => {
     setDueDate("");
   };
 
+  const getTodayDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   return (
     <div className="bg-gray-100 align-center h-full">
       <Navbar />
@@ -70,6 +78,7 @@ const TaskForm = () => {
               <input
                 type="date"
                 id="dueDate"
+                min={getTodayDate()}
                 value={dueDate}
                 onChange={(e) => setDueDate(e.target.value)}
                 className="py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-900 focus:ring-1 focus:ring-blue-900"
