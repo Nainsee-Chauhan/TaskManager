@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const API_URL = process.env.BASE_URL || "https://taskmanager-2g0m.onrender.com";
+const API_URL = process.env.BASE_URL || 'http://localhost:5000/api/tasks' ;
 
 export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async () => {
   const response = await axios.get(API_URL);
